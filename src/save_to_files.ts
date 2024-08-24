@@ -1,3 +1,5 @@
+// Please use this code to analyze response data and audio data.
+
 import axios from 'axios'
 import { writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from 'fs'
 import path from 'path'
@@ -42,20 +44,20 @@ for (const file of readdirSync(OUT_DIR)) {
             responseType: 'stream'
         });
 
-    const jsonChunks: string[] = []
+    const packets: string[] = []
 
     let i = 0
     // Collect data and store it in the JSON chunks array.
-    response.data.on('data', (chunk: Buffer) => {
-        const stringifiedChunk = chunk.toString();
-        jsonChunks.push(stringifiedChunk);
+    response.data.on('data', (bytes: Buffer) => {
+        const stringifiedChunk = bytes.toString();
+        packets.push(stringifiedChunk);
         writeFileSync(path.join(OUT_DIR, `response-${i}.txt`), stringifiedChunk);
         i++
     });
 
     response.data.on('end', () => {
         // Concat text data and create JSON lines.
-        const fullJson = jsonChunks.join('');
+        const fullJson = packets.join('');
         const lines = fullJson.split('\n')
             .filter(line => line.trim().length > 0)
             .map(line => line.replace(/^data: /g, ''))
