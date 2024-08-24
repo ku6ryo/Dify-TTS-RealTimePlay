@@ -2,9 +2,8 @@ This is an example for getting TTS audio response from [Dify](https://dify.ai/) 
 
 There are some sample files.
 
-- stream_play.ts: Plays the audio response in real-time.
-- save_audio.ts: Saves streamed audio data to a file.
-- save_reseponse.ts: Saves all streamed response to a file.
+- real-time_play.ts: Plays the audio response in real-time.
+- save_to_files.ts: Saves streamed audio data, response texts for each packet and concatenated text data.
 
 The implementation details are explained in [an article](https://dev.to/ku6ryo/how-to-realize-real-time-speech-with-dify-api-4ii1) on dev.to
 
