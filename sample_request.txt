@@ -1,0 +1,11 @@
+curl -X POST 'https://api.dify.ai/v1/chat-messages' \
+--header 'Authorization: Bearer YOUR_API_KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "inputs": {},
+    "query": "What are the specs of the iPhone 13 Pro Max?",
+    "response_mode": "streaming",
+    "conversation_id": "",
+    "user": "abc-123",
+    "files": []
+}'
