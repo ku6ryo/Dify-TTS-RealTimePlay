@@ -1,4 +1,4 @@
-This is an example for getting audio response from [Dify](https://dify.ai/) via API and playing it in real-time.
+This is an example for getting TTS audio response from [Dify](https://dify.ai/) via API and playing it in real-time.
 
 There are some sample files.
 
